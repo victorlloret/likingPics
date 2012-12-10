@@ -84,4 +84,16 @@ class PicsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def like 
+    @pic=Pic.find params[:id]
+    @pic.likes +=1
+    @pic.save
+
+    respond_to do |format|
+        format.html { redirect_to @pic}
+        format.json { render json: @pic.likes, status: :created, location: @pic }
+    end
+  end
+
 end

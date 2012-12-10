@@ -14,13 +14,14 @@
 
 <p>
   <b>Likes:</b>
-  <%= @pic.likes %>
+  <%=link_to pluralize(@pic.likes,"like"), like_pic_path(@pic), :method => :post%>
 </p>
 
 <p>
   <b>User:</b>
   <%= @pic.user_id %>
 </p>
+
 
 
 <%= link_to 'Edit', edit_pic_path(@pic) %> |
