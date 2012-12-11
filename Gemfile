@@ -26,6 +26,9 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'twitter-bootstrap-rails'
 
+group :test do
+ gem 'rspec-rails'
+end
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

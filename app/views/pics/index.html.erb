@@ -5,7 +5,6 @@
     <th>Title</th>
     <th>Pic image</th>
     <th>Likes</th>
-    <th>User</th>
     <th></th>
     <th></th>
     <th></th>
@@ -14,16 +13,18 @@
 <% @pics.each do |pic| %>
   <tr>
     <td><%= pic.title %></td>
-    <td><%= image_tag pic.pic_image,:size => '200x150' %></td>
+    <td><%= image_tag pic.pic_image,:size => '100x50' %></td>
     <td><%= pic.likes %></td>
-    <td><%= pic.user_id %></td>
     <td><%= link_to 'Show', pic %></td>
-    <td><%= link_to 'Edit', edit_pic_path(pic) %></td>
-    <td><%= link_to 'Destroy', pic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% if user_signed_in? && current_user.id == pic.user_id%> 
+      <td><%= link_to 'Edit', edit_pic_path(pic) %></td>
+      <td><%= link_to 'Destroy', pic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
 
 <br />
-
-<%= link_to 'New Pic', new_pic_path %>
+<% if user_signed_in?%> 
+  <%= link_to 'New Pic', new_pic_path %>
+<% end %>

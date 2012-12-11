@@ -11,18 +11,11 @@
 <p>
 	<%= image_tag @pic.pic_image,:size => '400x300' %>
 </p>
-
-<p>
-  <b>Likes:</b>
-  <%=link_to pluralize(@pic.likes,"like"), like_pic_path(@pic), :method => :post%>
-</p>
-
-<p>
-  <b>User:</b>
-  <%= @pic.user_id %>
-</p>
-
-
-
+<% if user_signed_in?%> 
+	<p>
+	  <b>Likes:</b>
+	  <%=link_to pluralize(@pic.likes,"like"), like_pic_path(@pic), :method => :post%>
+	</p>
+<% end %>
 <%= link_to 'Edit', edit_pic_path(@pic) %> |
 <%= link_to 'Back', pics_path %>

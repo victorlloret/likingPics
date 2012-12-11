@@ -1,7 +1,7 @@
 class PicsController < ApplicationController
   #control de usuario logeado proporcionado por devise. no aplica para index y like que queremos que lo pueda 
   #ver cualquier usuario
-  before_filter :authenticate_user!
+  #before_filter :authenticate_user!
   
   # GET /pics
   # GET /pics.json
