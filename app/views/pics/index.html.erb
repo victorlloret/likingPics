@@ -14,7 +14,7 @@
   <tr>
     <td><%= pic.title %></td>
     <td><%= image_tag pic.pic_image,:size => '100x50' %></td>
-    <td><%= pic.likes %></td>
+    <td><%= pic.num_likes %></td>
     <td><%= link_to 'Show', pic %></td>
     <% if user_signed_in? && current_user.id == pic.user_id%> 
       <td><%= link_to 'Edit', edit_pic_path(pic) %></td>

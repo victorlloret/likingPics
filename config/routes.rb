@@ -1,12 +1,16 @@
 LikingPics::Application.routes.draw do
 
+  #resources :likes
+
 devise_for :users
 
-resources :pics do
-  member do
-    post 'like'
-  end
-end 
+  resources :likes, :only => [:create, :destroy]
+resources :pics
+#resources :pics do
+#  member do
+#    post 'like'
+#  end
+#end 
 root :to => 'pics#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.

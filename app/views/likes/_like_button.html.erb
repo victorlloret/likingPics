@@ -1,0 +1,12 @@
+
+
+	<% if user_signed_in? && current_user.id == @pic.user_id %> 
+		<p>
+		  <b>Likes:</b> <%= @pic.num_likes %>
+		  	<%= form_for current_user.likes.build(:pic_id => @pic.id), :remote => true do |f| %>
+				<%= f.hidden_field :pic_id %>
+				<%= f.hidden_field :user_id %>
+				<%= f.submit "Like" %>
+			<% end %>
+		</p>
+	<% end %>

@@ -9,4 +9,9 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
   has_many :pics
+  has_many :likes
+
+  def has_like? pic
+    likes.find_by_pic_id pic.id
+  end
 end
