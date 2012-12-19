@@ -11,7 +11,7 @@
 <p>
 	<%= image_tag @pic.pic_image,:size => '400x300' %>
 </p>
-<% if user_signed_in?%> 
+<% if user_signed_in? && current_user.id == @pic.user_id %> 
 	<p>
 	  <b>Likes:</b>
 	  <%=link_to pluralize(@pic.likes,"like"), like_pic_path(@pic), :method => :post%>
